@@ -1,9 +1,12 @@
 import './App.css';
+import Footer from './Components/Footer/Footer';
+import LeftPanel from './Components/LeftPanel/LeftPanel';
 
 function App() {
   return (
-    <div className="App">
-      MY CRM Hello World
+    <div className='wrapper'>
+      <LeftPanel/>
+      <Footer />
     </div>
   );
 }
