@@ -78,6 +78,10 @@
     background-color: #3AB4F8;
 }
 
+.main-menu__item_active > .main-menu__control{
+    background-color: #3AB4F8;
+}
+
 .main-menu__profile-item {
     position: relative;
     display: flex;

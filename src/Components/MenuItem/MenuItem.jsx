@@ -16,24 +16,26 @@ import {
 const MenuItem = ( item ) => {
 
   const [showSubItems, setShowSubItems] = useState({})
-  const [activeItem, setActiveItem] = useState(null);
+  const [activeItem, setActiveItem] = useState(item);
+  const [activeSubItem, setActiveSubItem] = useState(item);
 
-  const handleShowSubItems = ( index, item) => {
+  const handleShowSubItems = ( index ) => {
+    setActiveItem(index)
     setShowSubItems({
       ...showSubItems,
       [index]: !showSubItems[index]
     });
-    setActiveItem(item);
-    MenuItems.forEach((item, i) => {
-      item.active = i === index;
-    });
+  };
+
+  const handleAddClassSubItems = ( subIndex ) => {
+    setActiveSubItem(subIndex)
   };
 
   const MenuItems = [
     {
       title: "Пользователи",
       href: "users.html",
-      active: false,
+      active: true,
       icon: <HiOutlineUserGroup className='icon' />
     },
     {
@@ -93,7 +95,7 @@ const MenuItem = ( item ) => {
       <ul className='main-menu'>
         {MenuItems.map((item, index) => {
           return (
-            <li key={index} className={`main-menu__item ${activeItem === item ? "main-menu__item_active" : ""}`}>
+            <li key={index} className={`main-menu__item ${activeItem === index ? "main-menu__item_active" : ""}`}>
               <Link className='main-menu__link' to={item.href} onClick={() => handleShowSubItems(index)}>
                 {item.icon}
                 <div className='main-menu__link-title'>{item.title}</div>
@@ -107,8 +109,8 @@ const MenuItem = ( item ) => {
                     return (
                       <li
                         key={subIndex}
-                        className={`main-menu__item ${activeItem === subItem ? "main-menu__item_active" : ""}`}>
-                        <Link className='main-menu__link' to={subItem.href}>
+                        className={`main-menu__item ${activeSubItem === subIndex ? "main-menu__item_active" : ""}`}>
+                        <Link className='main-menu__link' to={subItem.href} onClick={() => handleAddClassSubItems(subIndex)}>
                           {subItem.icon}
                           <div className='main-menu__link-title'>{subItem.title}</div>
                           <div className='main-menu__control'>
