@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './Footer.css';
 
-function Footer({ items = ["about", "text"], link = ["/", "/about"] }) {
+function Footer({ items = ["Техподдержка", "Отдел продаж"], link = ["/", "/about"] }) {
   return (
     <footer className="footer">
       <div className="footer__copyright">
@@ -17,7 +17,7 @@ function Footer({ items = ["about", "text"], link = ["/", "/about"] }) {
       </div>
       <div className="footer__item">
         Построено на 
-        <Link href="#" className="footer__link">OpenCRM</Link>
+        <Link to="/" className="footer__link"> OpenCRM</Link>
       </div>
     </footer>
   );

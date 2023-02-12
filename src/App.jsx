@@ -1,11 +1,11 @@
 import './App.css';
 import Footer from './Components/Footer/Footer';
-import LeftPanel from './Components/LeftPanel/LeftPanel';
+import LeftBar from './Components/LeftBar/LeftBar';
 
 function App() {
   return (
     <div className='wrapper'>
-      <LeftPanel/>
+      <LeftBar/>
       <Footer />
     </div>
   );

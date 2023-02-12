@@ -1,14 +1,14 @@
 footer {
     display: flex;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
     flex-wrap: nowrap;
     width: 100%;
-    height: 6vh;
+    height: 55px;
     padding: 1rem;
-    background: #acacac;
+    background: #5A5A5A;
     font-size: 0.875rem;
-    color: #000000;
+    color: #fff;
     position: relative;
     z-index: 2;
 }
@@ -43,7 +43,7 @@ footer {
 }
 
 .footer__link {
-    color: #666666;
+    color: rgba(191, 191, 191, 1);
     transition: all 0.3s ease;
 }
 
