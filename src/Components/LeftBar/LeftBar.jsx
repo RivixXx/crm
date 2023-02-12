@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { MdExitToApp } from "react-icons/md";
+import { MdExitToApp, MdNavigateBefore } from "react-icons/md";
 import avatar from "../../assets/avatars/true.png"
 import Logo_2 from "../../assets/logo/logo_2.svg"
 
@@ -12,8 +12,8 @@ const LeftBar = () => {
   return (
       <aside className="left-bar">
         <div className="left-bar__expander">
-          <button className="button_no-text button_size_xs button_rounded button_color_secondary">
-            <i className="icon chevron-left"></i>
+          <button className="button">
+            <MdNavigateBefore />
           </button>
         </div>
         <div className="left-bar__inner">

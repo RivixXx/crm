@@ -1,16 +1,33 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
 import { MdNavigateNext } from "react-icons/md";
 import { 
   HiOutlineUserGroup, 
-  HiOutlineLibrary, 
+  HiOutlineOfficeBuilding, 
   HiShare, 
   HiDocumentText, 
   HiReceiptTax,
-  HiCog 
+  HiCog,
+  HiShieldExclamation,
+  HiViewBoards,
+  HiOutlineTable
 } from "react-icons/hi";
 
-const MenuItem = () => {
+const MenuItem = ( item ) => {
+
+  const [showSubItems, setShowSubItems] = useState({})
+  const [activeItem, setActiveItem] = useState(null);
+
+  const handleShowSubItems = ( index, item) => {
+    setShowSubItems({
+      ...showSubItems,
+      [index]: !showSubItems[index]
+    });
+    setActiveItem(item);
+    MenuItems.forEach((item, i) => {
+      item.active = i === index;
+    });
+  };
 
   const MenuItems = [
     {
@@ -23,7 +40,7 @@ const MenuItem = () => {
       title: "Группы компаний",
       href: "company-groups.html",
       active: false,
-      icon: <HiOutlineLibrary className='icon' />
+      icon: <HiOutlineOfficeBuilding className='icon' />
     },
     {
       title: "Контрагенты",
@@ -47,23 +64,27 @@ const MenuItem = () => {
       title: "Настройки",
       href: "settings.html",
       active: false,
-      icon: <HiCog className='icon' />
-      // expanded: true,
-      // subItems: [
-      //   {
-      //     title: "Роли и права",
-      //     href: "settings-roles.html"
-      //   },
-      //   {
-      //     title: "Статусы сделок",
-      //     href: "settings-deal-statuses.html",
-      //     active: true
-      //   },
-      //   {
-      //     title: "Настройка доп. полей",
-      //     href: "settings-custom-fields.html"
-      //   }
-      // ]
+      icon: <HiCog className='icon' />,
+      subItems: [
+        {
+          title: "Роли и права",
+          href: "settings-roles.html",
+          active: false,
+          icon: <HiShieldExclamation className='icon' />
+        },
+        {
+          title: "Статусы сделок",
+          href: "settings-deal-statuses.html",
+          active: false,
+          icon: <HiViewBoards className='icon' />
+        },
+        {
+          title: "Настройка доп. полей",
+          href: "settings-custom-fields.html",
+          active: false,
+          icon: <HiOutlineTable className='icon' />
+        }
+      ]
     }
   ];
 
@@ -72,23 +93,28 @@ const MenuItem = () => {
       <ul className='main-menu'>
         {MenuItems.map((item, index) => {
           return (
-            <li key={index} className={`main-menu__item ${item.active ? "main-menu__item_active" : ""}`}>
-              <Link className='main-menu__link' to={item.href}>
+            <li key={index} className={`main-menu__item ${activeItem === item ? "main-menu__item_active" : ""}`}>
+              <Link className='main-menu__link' to={item.href} onClick={() => handleShowSubItems(index)}>
                 {item.icon}
                 <div className='main-menu__link-title'>{item.title}</div>
                 <div className='main-menu__control'>
                   <MdNavigateNext />
                 </div>
               </Link>
-              {item.subItems ? (
-                <ul>
+              {item.subItems && showSubItems[index] ? (
+                <ul className='main-menu__sub-items'>
                   {item.subItems.map((subItem, subIndex) => {
                     return (
                       <li
                         key={subIndex}
-                        className={subItem.active ? "active" : ""}
-                      >
-                        <Link href={subItem.href}>{subItem.title}</Link>
+                        className={`main-menu__item ${activeItem === subItem ? "main-menu__item_active" : ""}`}>
+                        <Link className='main-menu__link' to={subItem.href}>
+                          {subItem.icon}
+                          <div className='main-menu__link-title'>{subItem.title}</div>
+                          <div className='main-menu__control'>
+                            <MdNavigateNext />
+                          </div>
+                        </Link>
                       </li>
                     );
                   })}
