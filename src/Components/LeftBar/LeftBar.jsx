@@ -21,7 +21,7 @@ const LeftBar = () => {
             <img src={Logo_2} alt="Logo" className="logo" />
           </div>
           <div className='main-menu__profile-item'>
-            <Link className='main-menu__link'>
+            <Link className='main-menu__link' to='/'>
               <div className='user-avatar'>
                 <div className='user-avatar__wrapper'>
                   <img src={avatar} alt='avatar' />

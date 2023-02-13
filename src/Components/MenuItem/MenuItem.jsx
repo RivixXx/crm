@@ -34,37 +34,37 @@ const MenuItem = ( item ) => {
   const MenuItems = [
     {
       title: "Пользователи",
-      href: "users.html",
+      href: "/users",
       active: true,
       icon: <HiOutlineUserGroup className='icon' />
     },
     {
       title: "Группы компаний",
-      href: "company-groups.html",
+      href: "/companys",
       active: false,
       icon: <HiOutlineOfficeBuilding className='icon' />
     },
     {
       title: "Контрагенты",
-      href: "contractors.html",
+      href: "/counterparties",
       active: false,
       icon: <HiShare className='icon' />
     },
     {
       title: "Контракты",
-      href: "contracts.html",
+      href: "/contracts",
       active: false,
       icon: <HiDocumentText className='icon' />
     },
     {
       title: "Сделки",
-      href: "deals.html",
+      href: "/deals",
       active: false,
       icon: <HiReceiptTax className='icon' />
     },
     {
       title: "Настройки",
-      href: "settings.html",
+      href: "/settings",
       active: false,
       icon: <HiCog className='icon' />,
       subItems: [
