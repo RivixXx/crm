@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { MdNavigateNext } from "react-icons/md";
 import { 
   HiOutlineUserGroup, 
@@ -96,13 +96,13 @@ const MenuItem = ( item ) => {
         {MenuItems.map((item, index) => {
           return (
             <li key={index} className={`main-menu__item ${activeItem === index ? "main-menu__item_active" : ""}`}>
-              <Link className='main-menu__link' to={item.href} onClick={() => handleShowSubItems(index)}>
+              <NavLink className='main-menu__link' to={item.href} onClick={() => handleShowSubItems(index)}>
                 {item.icon}
                 <div className='main-menu__link-title'>{item.title}</div>
                 <div className='main-menu__control'>
                   <MdNavigateNext />
                 </div>
-              </Link>
+              </NavLink>
               {item.subItems && showSubItems[index] ? (
                 <ul className='main-menu__sub-items'>
                   {item.subItems.map((subItem, subIndex) => {
@@ -110,13 +110,13 @@ const MenuItem = ( item ) => {
                       <li
                         key={subIndex}
                         className={`main-menu__item ${activeSubItem === subIndex ? "main-menu__item_active" : ""}`}>
-                        <Link className='main-menu__link' to={subItem.href} onClick={() => handleAddClassSubItems(subIndex)}>
+                        <NavLink className='main-menu__link' to={subItem.href} onClick={() => handleAddClassSubItems(subIndex)}>
                           {subItem.icon}
                           <div className='main-menu__link-title'>{subItem.title}</div>
                           <div className='main-menu__control'>
                             <MdNavigateNext />
                           </div>
-                        </Link>
+                        </NavLink>
                       </li>
                     );
                   })}

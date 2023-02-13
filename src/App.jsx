@@ -10,24 +10,25 @@ import { ContractsPage } from "./Pages/ContractsPage/ContractsPage"
 import { DealsPage } from "./Pages/DealsPage/DealsPage"
 import { SettingsPage } from "./Pages/SettingsPage/SettingsPage"
 import { NotFound } from "./Pages/NotFound/NotFound"
+import { Layout } from "./Components/Layout/Layout"
 
 import './App.css';
 
 function App() {
   return (
     <div className='wrapper'>
-      <LeftBar/>
       <Routes>
-        <Route path="/" element={<ProfilePage />} />
-        <Route path="/users" element={<UsersPage />} />
-        <Route path="/companys" element={<CompanysPage />} />
-        <Route path="/counterparties" element={<CounterpartiesPage />} />
-        <Route path="/contracts" element={<ContractsPage />} />
-        <Route path="/deals" element={<DealsPage />} />
-        <Route path="/settings" element={<SettingsPage />} />
-        <Route path="*" element={<NotFound />} />
+        <Route path="/" element={<Layout />}>
+          <Route index element={<ProfilePage />} />
+          <Route path="users" element={<UsersPage />} />
+          <Route path="companys" element={<CompanysPage />} />
+          <Route path="counterparties" element={<CounterpartiesPage />} />
+          <Route path="contracts" element={<ContractsPage />} />
+          <Route path="deals" element={<DealsPage />} />
+          <Route path="settings" element={<SettingsPage />} />
+          <Route path="*" element={<NotFound />} />
+        </Route>
       </Routes>
-      <Footer />
     </div>
   );
 }
