@@ -78,8 +78,12 @@
     background-color: #3AB4F8;
 }
 
-.main-menu__item_active > .main-menu__control{
+.main-menu__item.main-menu__item_active .main-menu__control{
     background-color: #3AB4F8;
+}
+
+.main-menu__item.main-menu__item_active:hover .main-menu__control{
+    background-color: #1a5c80;
 }
 
 .main-menu__profile-item {
@@ -110,10 +114,6 @@
 
 .main-menu__profile-item > .main-menu__link:last-child:hover {
     background-color: #429723;
-}
-
-.main-menu__sub-items {
-
 }
 
 .main-menu__sub-items > .main-menu__item  {
