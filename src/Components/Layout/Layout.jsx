@@ -5,9 +5,9 @@ import LeftBar from '../LeftBar/LeftBar';
 export const Layout = () => {
   return (
     <>
-        <LeftBar />
-        <Outlet />
-        <Footer />
+      <LeftBar />
+      <Outlet />
+      <Footer />
     </>
   )
 }

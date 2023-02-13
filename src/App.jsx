@@ -1,23 +1,25 @@
 import { Routes, Route } from "react-router-dom";
-import Footer from './Components/Footer/Footer';
-import LeftBar from './Components/LeftBar/LeftBar';
 
-import { ProfilePage } from "./Pages/ProfilePage/ProfilePage"
-import { UsersPage } from "./Pages/UsersPage/UsersPage"
-import { CompanysPage } from "./Pages/CompanysPage/CompanysPage"
-import { CounterpartiesPage } from "./Pages/CounterpartiesPage/CounterpartiesPage"
-import { ContractsPage } from "./Pages/ContractsPage/ContractsPage"
-import { DealsPage } from "./Pages/DealsPage/DealsPage"
-import { SettingsPage } from "./Pages/SettingsPage/SettingsPage"
-import { NotFound } from "./Pages/NotFound/NotFound"
-import { Layout } from "./Components/Layout/Layout"
+import { ProfilePage } from "./Pages/ProfilePage/ProfilePage";
+import { UsersPage } from "./Pages/UsersPage/UsersPage";
+import { CompanysPage } from "./Pages/CompanysPage/CompanysPage";
+import { CounterpartiesPage } from "./Pages/CounterpartiesPage/CounterpartiesPage";
+import { ContractsPage } from "./Pages/ContractsPage/ContractsPage";
+import { DealsPage } from "./Pages/DealsPage/DealsPage";
+import { SettingsPage } from "./Pages/SettingsPage/SettingsPage";
+import { NotFound } from "./Pages/NotFound/NotFound";
+import { Layout } from "./Components/Layout/Layout";
+import { LoginPage } from "./Pages/LoginPage/LoginPage";
 
 import './App.css';
 
 function App() {
+
+
   return (
     <div className='wrapper'>
       <Routes>
+        <Route path="/login" element={<LoginPage />} />
         <Route path="/" element={<Layout />}>
           <Route index element={<ProfilePage />} />
           <Route path="users" element={<UsersPage />} />
@@ -31,6 +33,6 @@ function App() {
       </Routes>
     </div>
   );
-}
+};
 
 export default App;
